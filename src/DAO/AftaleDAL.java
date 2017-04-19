@@ -55,8 +55,13 @@ public class AftaleDAL {
         
     }
     
-    public void updateAftale(Bruger b) throws DALException{
+    public void updateAftale(Aftale a, int gruppeid) throws DALException{
         
-        
+        {
+		Connector.doUpdate(
+				"UPDATE aftale SET groupid = ?,  aftalename = ?, aftaledesc = ?, tidspunkt = ?, lokation = ? WHERE id = ?",
+				gruppeid, a.getNavn(), a.getBeskrivelse(), a.getTidspunkt(), a.getLokation(), a.getId()
+				);
+	} 
     }
 }

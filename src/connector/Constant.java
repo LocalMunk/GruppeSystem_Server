@@ -21,6 +21,6 @@ public abstract class Constant
 			username = "root", // dit brugernavn = dit studienummer
 			password = "bajer" ; // dit password som du har valgt til din database
 	
-	public static final int port = 3306;
+	public static final int port = 54694;
 	
 }
