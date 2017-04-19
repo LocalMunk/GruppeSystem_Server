@@ -5,8 +5,11 @@
  */
 package gruppesystem_server;
 
+import DALException.DALException;
 import DAO.AftaleDAL;
+import DAO.OpgaveDAL;
 import Data.Aftale;
+import Data.Opgave;
 import java.sql.SQLException;
 import connector.Connector;
 import java.sql.Date;
@@ -20,7 +23,7 @@ public class GruppeSystem_Server {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws DALException {
             try { new Connector(); } 
 		catch (InstantiationException e) { e.printStackTrace(); }
 		catch (IllegalAccessException e) { e.printStackTrace(); }
@@ -28,11 +31,16 @@ public class GruppeSystem_Server {
 		catch (SQLException e) { e.printStackTrace(); }
         
         AftaleDAL aftdal = new AftaleDAL();
-        Aftale a = new Aftale(1234, "Hotdawgspisning", "WAAIAWOIAOW", new Date(1,1,1), "Hawtdawgstanden");
+        Aftale a = new Aftale(123456, "Hotdawgspisning", "WAAIAWOIAOW", new Date(1,1,1), "Hawtdawgstanden");
         try{aftdal.createAftale(a, 4);
         }catch(Exception e){
             e.printStackTrace();
         }
+        OpgaveDAL opgdal = new OpgaveDAL();
+        Opgave o = new Opgave(2, "megaonani", "gokkeri");
+        
+        opgdal.createOpgave(o, 1);
+        
     }
     
 }
