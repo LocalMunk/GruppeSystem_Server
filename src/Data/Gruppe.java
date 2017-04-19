@@ -5,7 +5,6 @@
  */
 package Data;
 
-import brugerautorisation.data.Bruger;
 import java.util.ArrayList;
 
 /**
