@@ -23,9 +23,18 @@ import Data.Bruger;
  */
 public class BrugerDAL {
 
-    public Bruger getUser(String user, String pass) throws DALException{
-        ResultSet rs = Connector.doQuery("her skal stå SQL kald");
-        return null;
+    public Bruger getUser(int id) throws DALException{
+        ResultSet rs = Connector.doQuery("SELECT * FROM bruger WHERE id = ?", id);
+        try {
+            if (!rs.first())
+                throw new DALException("Brugeren" + id + "findes ikke");
+            
+            Bruger b = new Bruger();
+            
+            return b;
+	}catch (SQLException e){
+            throw new DALException(e);
+        }
     }
     
     public List<Bruger> getUserList(){
@@ -38,7 +47,7 @@ public class BrugerDAL {
     }
     
     public void updateUser(Bruger b) throws DALException{
-        getUser("w","w");
+        getUser(1);
         
     }
     

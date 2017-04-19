@@ -5,6 +5,12 @@
  */
 package gruppesystem_server;
 
+import DAO.AftaleDAL;
+import Data.Aftale;
+import java.sql.SQLException;
+import connector.Connector;
+import java.sql.Date;
+
 /**
  *
  * @author elbosso
@@ -15,7 +21,18 @@ public class GruppeSystem_Server {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+            try { new Connector(); } 
+		catch (InstantiationException e) { e.printStackTrace(); }
+		catch (IllegalAccessException e) { e.printStackTrace(); }
+		catch (ClassNotFoundException e) { e.printStackTrace(); }
+		catch (SQLException e) { e.printStackTrace(); }
+        
+        AftaleDAL aftdal = new AftaleDAL();
+        Aftale a = new Aftale(1234, "Hotdawgspisning", "WAAIAWOIAOW", new Date(1,1,1), "Hawtdawgstanden");
+        try{aftdal.createAftale(a, 4);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
     }
     
 }
