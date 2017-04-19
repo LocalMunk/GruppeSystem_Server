@@ -7,6 +7,7 @@ package DAO;
 
 
 
+import DALException.DALException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -22,8 +23,8 @@ import Data.Bruger;
  */
 public class BrugerDAL {
 
-    public Bruger getUser(String user, String pass){
-        ResultSet rs = Connector.doQuery();
+    public Bruger getUser(String user, String pass) throws DALException{
+        ResultSet rs = Connector.doQuery("her skal stå SQL kald");
         return null;
     }
     
@@ -36,7 +37,7 @@ public class BrugerDAL {
         
     }
     
-    public void updateUser(Bruger b){
+    public void updateUser(Bruger b) throws DALException{
         getUser("w","w");
         
     }
