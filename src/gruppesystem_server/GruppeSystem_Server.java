@@ -28,11 +28,14 @@ public class GruppeSystem_Server {
 		catch (SQLException e) { e.printStackTrace(); }
         
         AftaleDAL aftdal = new AftaleDAL();
-        Aftale a = new Aftale(1234, "Hotdawgspisning", "WAAIAWOIAOW", new Date(1,1,1), "Hawtdawgstanden");
-        try{aftdal.createAftale(a, 4);
+        try{
+            Aftale a = aftdal.getAftale(1234);
         }catch(Exception e){
             e.printStackTrace();
         }
+        
+        System.out.println(a.getNavn());
+                
     }
     
 }
