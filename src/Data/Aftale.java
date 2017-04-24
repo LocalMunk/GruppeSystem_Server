@@ -19,7 +19,7 @@ public class Aftale {
     private int id;
     private String navn;
     private String beskrivelse;
-    private ArrayList<Bruger> ansvarlige;
+    private ArrayList<Bruger> ansvarlige;   
 
     public Aftale(int id, String navn, String beskrivelse, Date tidspunkt, String lokation) {
 

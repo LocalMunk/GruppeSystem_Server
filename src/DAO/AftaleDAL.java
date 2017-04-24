@@ -33,7 +33,7 @@ public class AftaleDAL {
     
     public List<Aftale> getAftaleList(int projektid) throws DALException{
         List<Aftale> list = new ArrayList<Aftale>();
-		ResultSet rs = Connector.doQuery("SELECT * FROM aftale WHERE id = ?", projektid);
+		ResultSet rs = Connector.doQuery("SELECT * FROM aftale WHERE projektid = ?", projektid);
                 try{
                 while (rs.next())   
 			{
@@ -44,23 +44,23 @@ public class AftaleDAL {
 		return list;
     }
     
-    public void createAftale(Aftale a, int gruppeid) throws DALException{
+    public void createAftale(Aftale a, int projektid) throws DALException{
         {
 		Connector.doUpdate
 		(
-			"INSERT INTO aftale(id, groupid, aftalename, aftaledesc, tidspunkt, lokation) VALUES (?,?,?,?,?,?)",
-				a.getId(), gruppeid, a.getNavn(), a.getBeskrivelse(), a.getTidspunkt(), a.getLokation()
+			"INSERT INTO aftale(id, projektid, aftalename, aftaledesc, tidspunkt, lokation) VALUES (?,?,?,?,?,?)",
+				a.getId(), projektid, a.getNavn(), a.getBeskrivelse(), a.getTidspunkt(), a.getLokation()
 				);
 	}
         
     }
     
-    public void updateAftale(Aftale a, int gruppeid) throws DALException{
+    public void updateAftale(Aftale a, int projektid) throws DALException{
         
         {
 		Connector.doUpdate(
-				"UPDATE aftale SET groupid = ?,  aftalename = ?, aftaledesc = ?, tidspunkt = ?, lokation = ? WHERE id = ?",
-				gruppeid, a.getNavn(), a.getBeskrivelse(), a.getTidspunkt(), a.getLokation(), a.getId()
+				"UPDATE aftale SET projektid = ?,  aftalename = ?, aftaledesc = ?, tidspunkt = ?, lokation = ? WHERE id = ?",
+				projektid, a.getNavn(), a.getBeskrivelse(), a.getTidspunkt(), a.getLokation(), a.getId()
 				);
 	} 
     }
