@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package hangman;
+package Server;
 
 import static java.lang.System.in;
 import java.rmi.Naming;
@@ -14,6 +14,8 @@ import brugerautorisation.transport.soap.BrugeradminImpl;
 import brugerautorisation.server.Brugerdatabase;
 import Server.ServerImpl;
 import Server.ServerInterface;
+import connector.Connector;
+import java.sql.SQLException;
 
 
 /**
@@ -24,14 +26,22 @@ public class Server {
     
    public static void main(String [] args)throws Exception{
        
+       try { new Connector(); } 
+		catch (InstantiationException e) { e.printStackTrace(); }
+		catch (IllegalAccessException e) { e.printStackTrace(); }
+		catch (ClassNotFoundException e) { e.printStackTrace(); }
+		catch (SQLException e) { e.printStackTrace(); }
+       
        ServerInterface serv = new ServerImpl();
       
 
 		
-    // Ipv6-addressen [::] svarer til Ipv4-adressen 0.0.0.0, der matcher alle maskinens netkort og 
-		Endpoint.publish("http://ubuntu4.javabog.dk:54694/GruppeSystem", serv);
+                //Til test (local)
+                Endpoint.publish("http://[::]:8080/server", serv);
+                
+		//Endpoint.publish("http://ubuntu4.javabog.dk:54694/GruppeSystem", serv);
            
-		System.out.println("Galgelegtjeneste publiceret min ven.");
+		System.out.println("Gruppesystjeneste publiceret min ven.");
           
        
        
