@@ -20,12 +20,15 @@ import brugerautorisation.data.Bruger;
 import javax.xml.ws.Service;
 import java.net.MalformedURLException;
 import java.net.URL;
+import javax.jws.WebService;
 import javax.xml.namespace.QName;
 
 /**
  *
  * @author elbosso
  */
+
+@WebService(endpointInterface = "Server.ServerInterface")
 public class ServerImpl implements ServerInterface{
     
     AftaleDAL aftDal;

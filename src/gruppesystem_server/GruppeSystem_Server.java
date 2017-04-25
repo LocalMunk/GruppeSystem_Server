@@ -39,7 +39,7 @@ public class GruppeSystem_Server {
         if(a != null)
             System.out.println(a.getNavn());
         else
-            System.out.println("Der er gået noget galt");
+            System.out.println("Der er gået nog½et galt");
     }
     
 }
