@@ -7,6 +7,7 @@ package DAO;
 
 import Data.Projekt;
 import DALException.DALException;
+import Data.Aftale;
 import connector.Connector;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -60,7 +61,17 @@ public class ProjektDAL {
         {
 		Connector.doUpdate(
 				"UPDATE projekt SET projectname = ?,  projectdesc = ?, groupname = ?, adminid = ? WHERE id = ?",
-				a.getId(), a.getNavn(), a.getDesc(), a.getGruppeNavn(), a.getAdminid()
+				a.getNavn(), a.getDesc(), a.getGruppeNavn(), a.getAdminid(), a.getId()
+				);
+	} 
+    }
+        
+        public void DeleteProjekt(Projekt a, int personid) throws DALException{
+        
+        {
+		Connector.doUpdate(
+				"DELETE FROM projekt WHERE id = ?", a.getId()
+				
 				);
 	} 
     }

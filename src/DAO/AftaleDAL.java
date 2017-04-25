@@ -64,4 +64,14 @@ public class AftaleDAL {
 				);
 	} 
     }
+    
+    public void DeleteAftale(Aftale a, int projektid) throws DALException{
+        
+        {
+		Connector.doUpdate(
+				"DELETE FROM aftale WHERE id = ?", a.getId()
+				
+				);
+	} 
+    }
 }

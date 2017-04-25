@@ -92,4 +92,21 @@ public class ServerImpl implements ServerInterface{
         return true;
     }
     
+    @Override
+    public boolean DeleteAftale(Aftale a, int studienummer, int projektnummer)throws DALException {
+        aftDal.DeleteAftale(a, projektnummer);
+        return true;
+    }
+
+    @Override
+    public boolean DeleteOpgave(Opgave a, int studienummer, int projektnummer) throws DALException{
+        opgDal.DeleteOpgave(a, projektnummer);
+        return true;
+    }
+
+    @Override
+    public boolean DeleteProjekt(Projekt a, int studienummer) throws DALException{
+        proDal.DeleteProjekt(a, studienummer);
+        return true;
+    }
 }

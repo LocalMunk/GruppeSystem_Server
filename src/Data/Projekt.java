@@ -42,7 +42,7 @@ public class Projekt {
         this.navn = navn;
     }
     
-    public String getDesc(String desc) {
+    public String getDesc() {
     	return desc;
     }
     
@@ -50,7 +50,7 @@ public class Projekt {
     	this.desc = desc;
     }
     
-    public String getGruppeNavn(String gruppeNavn) {
+    public String getGruppeNavn() {
     	return gruppeNavn;
     }
     
@@ -58,7 +58,7 @@ public class Projekt {
     	this.gruppeNavn = gruppeNavn;
     }
     
-    public int getAdminid(int adminid) {
+    public int getAdminid() {
     	return adminid;
     }
     

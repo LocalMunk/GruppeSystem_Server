@@ -66,5 +66,15 @@ public class OpgaveDAL {
     
 
     }
+    
+    public void DeleteOpgave(Opgave a, int projektid) throws DALException{
+        
+        {
+		Connector.doUpdate(
+				"DELETE FROM opgave WHERE id = ?", a.getId()
+				
+				);
+	} 
+    }
 }
 
