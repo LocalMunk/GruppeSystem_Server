@@ -6,7 +6,6 @@
 package Server;
 
 import Data.Aftale;
-import Data.Bruger;
 import Data.Opgave;
 import Data.Projekt;
 import DAO.AftaleDAL;
@@ -18,6 +17,7 @@ import java.util.List;
 import DALException.DALException;
 
 import brugerautorisation.transport.soap.Brugeradmin;
+import brugerautorisation.data.Bruger;
 import javax.xml.ws.Service;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -59,7 +59,7 @@ public class ServerImpl implements ServerInterface{
         Service service = Service.create(url, qname);
         Brugeradmin ba = service.getPort(Brugeradmin.class);
         try {
-            Bruger b = ba.hentBruger(studienummer, kodeord);
+            brugerautorisation.data.Bruger b = ba.hentBruger(studienummer + "", password);
             return b;
 
         } catch (Exception e) {
@@ -89,16 +89,19 @@ public class ServerImpl implements ServerInterface{
     @Override
     public boolean CreateAftale(Aftale a, int studienummer, int projektnummer)throws DALException {
         aftDal.createAftale(a, projektnummer);
+        return true;
     }
 
     @Override
     public boolean CreateOpgave(Opgave a, int studienummer, int projektnummer) throws DALException{
         opgDal.createOpgave(a, projektnummer);
+        return true;
     }
 
     @Override
     public boolean CreateProjekt(Projekt a, int studienummer) throws DALException{
         proDal.createProjekt(a, studienummer);
+        return true;
     }
     
 }

@@ -5,7 +5,7 @@
  */
 package Server;
 
-import Data.Bruger;
+import brugerautorisation.data.Bruger;
 import Data.Projekt;
 import Data.Opgave;
 import Data.Aftale;
