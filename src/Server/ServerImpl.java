@@ -10,7 +10,6 @@ import Data.Opgave;
 import Data.Projekt;
 import DAO.AftaleDAL;
 import DAO.BrugerDAL;
-import DAO.GruppeDAL;
 import DAO.OpgaveDAL;
 import DAO.ProjektDAL;
 import java.util.List;
@@ -31,23 +30,12 @@ public class ServerImpl implements ServerInterface{
     
     AftaleDAL aftDal;
     BrugerDAL bruDal;
-    GruppeDAL gruDal;
     OpgaveDAL opgDal;
     ProjektDAL proDal;
-
-    public ServerImpl(AftaleDAL aftDal, BrugerDAL bruDal, GruppeDAL gruDal, OpgaveDAL opgDal, ProjektDAL proDal) {
-        this.aftDal = aftDal;
-        this.bruDal = bruDal;
-        this.gruDal = gruDal;
-        this.opgDal = opgDal;
-        this.proDal = proDal;
-    }
-    
     
     public ServerImpl(){
         aftDal = new AftaleDAL();
         bruDal = new BrugerDAL();
-        gruDal = new GruppeDAL();
         opgDal = new OpgaveDAL();
         proDal = new ProjektDAL();
     }
