@@ -8,11 +8,14 @@ package gruppesystem_server;
 import DALException.DALException;
 import DAO.AftaleDAL;
 import DAO.OpgaveDAL;
+import DAO.ProjektDAL;
 import Data.Aftale;
 import Data.Opgave;
+import Data.Projekt;
 import java.sql.SQLException;
 import connector.Connector;
 import java.sql.Date;
+import java.util.List;
 
 /**
  *
@@ -30,16 +33,11 @@ public class GruppeSystem_Server {
 		catch (ClassNotFoundException e) { e.printStackTrace(); }
 		catch (SQLException e) { e.printStackTrace(); } 
         
-        AftaleDAL aftdal = new AftaleDAL();
-        Aftale a = null;
-        try{a = aftdal.getAftale(1234);
-        }catch(Exception e){
-            e.printStackTrace();
+        ProjektDAL p = new ProjektDAL();
+        List<Projekt> a = p.getProjektList(133045);
+        for(Projekt c: a){
+            System.out.println(c.getNavn());
         }
-        if(a != null)
-            System.out.println(a.getNavn());
-        else
-            System.out.println("Der er gået nog½et galt");
     }
     
 }

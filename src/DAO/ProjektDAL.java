@@ -34,7 +34,7 @@ public class ProjektDAL {
 	
 	public List<Projekt> getProjektList(int personid) throws DALException{
         List<Projekt> list = new ArrayList<Projekt>();
-		ResultSet rs = Connector.doQuery("SELECT * FROM projekt WHERE id = (SELECT groupid FROM medlemmer WHERE brugid = ?)", personid);
+		ResultSet rs = Connector.doQuery("SELECT * FROM projekt LEFT JOIN medlemmer ON medlemmer.groupid = projekt.id AND medlemmer.brugid = ? WHERE medlemmer.id IS NOT NULL", personid);
                 try{
                 while (rs.next())   
 			{
