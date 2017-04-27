@@ -50,7 +50,7 @@ public class ServerImpl implements ServerInterface{
         Service service = Service.create(url, qname);
         Brugeradmin ba = service.getPort(Brugeradmin.class);
         try {
-            brugerautorisation.data.Bruger b = ba.hentBruger(studienummer + "", password);
+            brugerautorisation.data.Bruger b = ba.hentBruger("s" + studienummer, password);
             return b;
 
         } catch (Exception e) {
