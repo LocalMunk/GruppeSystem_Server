@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Data;
+package DTO;
 
 import java.util.ArrayList;
 
@@ -24,6 +24,9 @@ public class Opgave {
         this.navn = navn;
         this.beskrivelse = beskrivelse;
        }
+    public Opgave(){
+        
+    }
 
  
   

@@ -5,9 +5,9 @@
  */
 package Server;
 
-import Data.Aftale;
-import Data.Opgave;
-import Data.Projekt;
+import DTO.Aftale;
+import DTO.Opgave;
+import DTO.Projekt;
 import DAO.AftaleDAL;
 import DAO.BrugerDAL;
 import DAO.OpgaveDAL;
@@ -27,8 +27,8 @@ import javax.xml.namespace.QName;
  *
  * @author elbosso
  */
-
 @WebService(endpointInterface = "Server.ServerInterface")
+
 public class ServerImpl implements ServerInterface{
     
     AftaleDAL aftDal;
@@ -111,5 +111,10 @@ public class ServerImpl implements ServerInterface{
     public boolean DeleteProjekt(Projekt a, int studienummer) throws DALException{
         proDal.DeleteProjekt(a, studienummer);
         return true;
+    }
+
+    @Override
+    public String fedtManSpa() {
+       return "Spa";
     }
 }

@@ -6,9 +6,9 @@
 package Server;
 
 import brugerautorisation.data.Bruger;
-import Data.Projekt;
-import Data.Opgave;
-import Data.Aftale;
+import DTO.Projekt;
+import DTO.Opgave;
+import DTO.Aftale;
 import java.net.MalformedURLException;
 import javax.jws.WebMethod;
 import javax.jws.WebService;
@@ -33,5 +33,6 @@ public interface ServerInterface {
    @WebMethod public boolean DeleteAftale(Aftale a, int studienummer, int projektnummer)throws DALException;
    @WebMethod public boolean DeleteOpgave(Opgave a, int studienummer, int projektnummer)throws DALException;
    @WebMethod public boolean DeleteProjekt(Projekt a, int studienummer)throws DALException;
+     @WebMethod public String fedtManSpa();
    
 }

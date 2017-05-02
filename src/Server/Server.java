@@ -5,6 +5,7 @@
  */
 package Server;
 
+import DTO.Projekt;
 import static java.lang.System.in;
 import java.rmi.Naming;
 import java.rmi.Remote;
@@ -12,9 +13,9 @@ import java.util.Scanner;
 import javax.xml.ws.Endpoint;
 import brugerautorisation.transport.soap.BrugeradminImpl;
 import brugerautorisation.server.Brugerdatabase;
+import connector.Connector;
 import Server.ServerImpl;
 import Server.ServerInterface;
-import connector.Connector;
 import java.sql.SQLException;
 
 
@@ -25,23 +26,20 @@ import java.sql.SQLException;
 public class Server {
     
    public static void main(String [] args)throws Exception{
-       
-       try { new Connector(); } 
+      try { new Connector(); } 
 		catch (InstantiationException e) { e.printStackTrace(); }
 		catch (IllegalAccessException e) { e.printStackTrace(); }
 		catch (ClassNotFoundException e) { e.printStackTrace(); }
 		catch (SQLException e) { e.printStackTrace(); }
        
        ServerInterface serv = new ServerImpl();
-      
+
 
 		
-                //Til test (local)
-                Endpoint.publish("http://[::]:8080/server", serv);
-                
-		//Endpoint.publish("http://ubuntu4.javabog.dk:54694/GruppeSystem", serv);
+    // Ipv6-addressen [::] svarer til Ipv4-adressen 0.0.0.0, der matcher alle maskinens netkort og 
+		Endpoint.publish("http://[::]:8080/server", serv);
            
-		System.out.println("Gruppesystjeneste publiceret min ven.");
+		System.out.println("Gruppesys publiceret min ven.");
           
        
        
